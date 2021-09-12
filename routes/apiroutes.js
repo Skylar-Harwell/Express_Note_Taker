@@ -2,6 +2,9 @@ const router = require('express').Router();
 const notes = require('../db/db.json');
 const fs = require('fs');
 const uuid = require('../helpers/uuid');
+const { json } = require('express');
+const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require('constants');
+
 
 // GET Route for retrieving all the feedback
 router.get('/notes', (req, res) => {
@@ -24,5 +27,6 @@ router.post('/notes', (req, res) => {
         : res.json(notes)
     );  
 });
+
 
 module.exports = router;
